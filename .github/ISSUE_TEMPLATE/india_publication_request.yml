@@ -1,0 +1,110 @@
+name: India External Publication Approval Request
+description: Submit your paper, publication, or presentation for compliance review.
+title: "[EXP-REQUEST] - [Title of Content] - [Author Name]"
+labels: ["status: in-review", "region: India"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### 🏢 India ETC External Publication Approval Portal
+        Please fill out this form to initiate the compliance and IP review sequence.
+        *Note: Approvals from Manager, Legal, Communications, and External Partnerships are mandatory.*
+
+  - type: input
+    id: lead_author
+    attributes:
+      label: "👤 Lead Author / Presenter Name"
+      placeholder: "e.g., Rahul Ottur"
+    validations:
+      required: true
+
+  - type: input
+    id: direct_manager
+    attributes:
+      label: "💼 Direct Manager (Mandatory Approver)"
+      placeholder: "Enter Manager's Name / GitHub handle / Email"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: content_type
+    attributes:
+      label: "📄 Content Type"
+      description: "Select the specific type of content being submitted."
+      options:
+        - "Paper"
+        - "Publication"
+        - "External Presentation"
+        - "Abstract / Summary Only"
+        - "Other"
+    validations:
+      required: true
+
+  - type: input
+    id: presentation_date
+    attributes:
+      label: "📅 Scheduled Presentation / Submission Date (YYYY-MM-DD)"
+      description: "Enter the scheduled date of presentation or final paper submission."
+      placeholder: "e.g., 2026-10-25"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: lead_time_check
+    attributes:
+      label: "⏳ Review Lead-Time Validation"
+      description: "Reviewers require a minimum of 2 weeks (14 days) lead time to properly evaluate submissions."
+      options:
+        - label: "I confirm that my submission date is AT LEAST 14 days from today."
+          required: false
+        - label: "⚠️ WARNING: My date is LESS than 14 days away. (Checking this alerts reviewers to an expedited timeline escalation)."
+          required: false
+
+  - type: dropdown
+    id: sme_requirement
+    attributes:
+      label: "🔬 SME / Technical Reviewer (Optional Gate)"
+      description: "Is an in-depth Subject Matter Expert (SME) technical review required for this topic?"
+      options:
+        - "No - Standard content, manager review sufficient"
+        - "Yes - Contains technical performance claims / new data (SME review needed)"
+    validations:
+      required: true
+
+  - type: input
+    id: sme_name
+    attributes:
+      label: "Designated SME Name (if 'Yes' selected above)"
+      placeholder: "Leave blank if not applicable"
+    validations:
+      required: false
+
+  - type: textarea
+    id: submission_draft
+    attributes:
+      label: "📎 Upload Draft Content (Manuscript / Slides / Abstract)"
+      description: "Drag and drop your presentation slides, document, or abstract directly into this box."
+      placeholder: "Attach your files here..."
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        ### 🚦 Reviewer Approval Gates
+        *Reviewers: Review the attached draft, leave your comments, and check your approval box below.*
+
+        - [ ] **Gate 1: Direct Manager Approval** *(MANDATORY - Strategic & business alignment)*
+        - [ ] **Gate 2: SME / Technical Peer Approval** *(OPTIONAL - Required only if technical claims exist)*
+        - [ ] **Gate 3: Legal & IP Counsel Approval** *(MANDATORY - Patent, copyright & IP clearance)*
+        - [ ] **Gate 4: Branding & Communications Approval** *(MANDATORY - Brand compliance & messaging)*
+        - [ ] **Gate 5: External Partnerships Final Sign-Off** *(MANDATORY - India ETC gatekeeper clearance)*
+
+        ---
+        ### 📸 MANDATORY INDIA POST-EVENT DELIVERABLES (Hard Closure Gate)
+        > ⚠️ **CRITICAL POLICY NOTICE:** This workflow **CANNOT BE CLOSED** until the event has concluded and the presenter uploads the mandatory proof items below.
+
+        - [ ] **Post-Event Photographs:** Action photos or session screenshots of the active presentation uploaded below.
+        - [ ] **Lessons Learned & Feedback:** Summary document detailing audience questions, feedback, and key learnings attached below.
+        - [ ] **Final Archive Verification:** External Partnerships verification and final ticket closure.
