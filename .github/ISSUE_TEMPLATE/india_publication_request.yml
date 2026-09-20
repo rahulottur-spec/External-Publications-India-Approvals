@@ -22,7 +22,7 @@ body:
     id: direct_manager
     attributes:
       label: "💼 Direct Manager (Mandatory Approver)"
-      placeholder: "Enter Manager's Name / GitHub handle / Email"
+      placeholder: "Enter Manager's Name / Email"
     validations:
       required: true
 
@@ -41,29 +41,37 @@ body:
       required: true
 
   - type: input
+    id: content_type_other
+    attributes:
+      label: "🔍 Specify Content Type (If 'Other' selected above)"
+      placeholder: "Please describe your content type here..."
+    validations:
+      required: false
+
+  - type: input
     id: presentation_date
     attributes:
-      label: "📅 Scheduled Presentation / Submission Date (YYYY-MM-DD)"
-      description: "Enter the scheduled date of presentation or final paper submission."
-      placeholder: "e.g., 2026-10-25"
+      label: "📅 Scheduled Presentation / Submission Date (DD-MM-YYYY)"
+      description: "Click to select the presentation date or final paper submission deadline from the calendar."
+      placeholder: "DD-MM-YYYY"
     validations:
       required: true
 
-  - type: checkboxes
-    id: lead_time_check
+  - type: dropdown
+    id: lead_time_select
     attributes:
-      label: "⏳ Review Lead-Time Validation"
+      label: "⏳ Review Lead-Time Selection"
       description: "Reviewers require a minimum of 2 weeks (14 days) lead time to properly evaluate submissions."
       options:
-        - label: "I confirm that my submission date is AT LEAST 14 days from today."
-          required: false
-        - label: "⚠️ WARNING: My date is LESS than 14 days away. (Checking this alerts reviewers to an expedited timeline escalation)."
-          required: false
+        - "I confirm that my submission date is AT LEAST 14 days from today (Standard Request)."
+        - "⚠️ WARNING: My date is LESS than 14 days away (Expedited Timeline / Urgent Escalation)."
+    validations:
+      required: true
 
   - type: dropdown
     id: sme_requirement
     attributes:
-      label: "🔬 SME / Technical Reviewer (Optional Gate)"
+      label: "🔬 SME / Technical Reviewer (Optional)"
       description: "Is an in-depth Subject Matter Expert (SME) technical review required for this topic?"
       options:
         - "No - Standard content, manager review sufficient"
@@ -72,10 +80,11 @@ body:
       required: true
 
   - type: input
-    id: sme_name
+    id: sme_email
     attributes:
-      label: "Designated SME Name (if 'Yes' selected above)"
-      placeholder: "Leave blank if not applicable"
+      label: "Designated SME Corporate Email Address"
+      description: "📢 Note: Please notify your designated SME directly to review and approve this ticket once submitted."
+      placeholder: "e.g., sme.name@tranetechnologies.com"
     validations:
       required: false
 
@@ -92,14 +101,14 @@ body:
     attributes:
       value: |
         ---
-        ### 🚦 Reviewer Approval Gates
+        ### 🚦 Review & Approval Order
         *Reviewers: Review the attached draft, leave your comments, and check your approval box below.*
 
-        - [ ] **Gate 1: Direct Manager Approval** *(MANDATORY - Strategic & business alignment)*
-        - [ ] **Gate 2: SME / Technical Peer Approval** *(OPTIONAL - Required only if technical claims exist)*
-        - [ ] **Gate 3: Legal & IP Counsel Approval** *(MANDATORY - Patent, copyright & IP clearance)*
-        - [ ] **Gate 4: Branding & Communications Approval** *(MANDATORY - Brand compliance & messaging)*
-        - [ ] **Gate 5: External Partnerships Final Sign-Off** *(MANDATORY - India ETC gatekeeper clearance)*
+        - [ ] **1. Direct Manager Approval** *(MANDATORY - Strategic & business alignment)*
+        - [ ] **2. SME / Technical Peer Approval** *(OPTIONAL - Required only if technical claims exist)*
+        - [ ] **3. Legal & IP Counsel Approval** *(MANDATORY - Patent, copyright & IP clearance)*
+        - [ ] **4. Branding & Communications Approval** *(MANDATORY - Brand compliance & messaging)*
+        - [ ] **5. External Partnerships Final Sign-Off** *(MANDATORY - India ETC gatekeeper clearance)*
 
         ---
         ### 📸 MANDATORY INDIA POST-EVENT DELIVERABLES (Hard Closure Gate)
